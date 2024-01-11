@@ -36,5 +36,8 @@ w3_space_create <- function(name,
                    "--no-account" = no_account, "--account" = account)
   moreargs <- moreargs[!sapply(moreargs, is.logical)]
   moreargs <- moreargs[!sapply(moreargs, is.null)]
-  system2("w3", args = c("space", "create", name, moreargs))
+  # Further input will be required. Send stdin to the R console.
+  # stdin = "console" doesn't work. It gives error:  sh: console: No such file or directory
+  system2("w3", args = c("space", "create", name, moreargs),input = "
+          ")
 }
