@@ -6,5 +6,5 @@
 #' @export
 #'
 w3_whoami <- function() {
-  system2("w3", args = c("whoami"))
+  system2("w3", args = c("whoami"), stdout = TRUE)
 }

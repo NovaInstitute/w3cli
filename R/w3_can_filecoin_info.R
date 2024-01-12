@@ -18,5 +18,5 @@ w3_can_filecoin_info <- function(piece_cid) {
   if (missing(piece_cid)) {
     stop("piece_cid must be provided")
   }
-  system2("w3", args = c("can", "filecoin", "info", piece_cid))
+  system2("w3", args = c("can", "filecoin", "info", piece_cid), stdout = TRUE)
 }

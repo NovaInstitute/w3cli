@@ -19,5 +19,5 @@ w3_space_info <- function(space = NULL, json = FALSE) {
   moreargs <- list("--space" = space, "--json" = json)
   moreargs <- moreargs[!sapply(moreargs, is.null)]
   moreargs <- moreargs[!sapply(moreargs, is.logical)]
-  system2("w3", args = c("space", "info", moreargs))
+  system2("w3", args = c("space", "info", moreargs), stdout = TRUE)
 }

@@ -31,5 +31,5 @@ w3_can_upload_ls <- function(json = FALSE,
   moreargs <- moreargs[!sapply(moreargs, is.null)]
   moreargs <- moreargs[!sapply(moreargs, is.logical)]
   moreargs <- moreargs[!sapply(moreargs, is.numeric)]
-  system2("w3", args = c("can", "upload", "ls", moreargs))
+  system2("w3", args = c("can", "upload", "ls", moreargs), stdout = TRUE)
 }

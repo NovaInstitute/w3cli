@@ -17,5 +17,5 @@ w3_can_store_add <- function(car_path) {
   if (missing(car_path)) {
     stop("car_path must be provided")
   }
-  system2("w3", args = c("can", "store", "add", car_path))
+  system2("w3", args = c("can", "store", "add", car_path), stdout = TRUE)
 }

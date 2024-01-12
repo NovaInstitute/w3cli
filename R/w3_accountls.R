@@ -8,5 +8,5 @@
 #' w3_accountls()
 
 w3_accountls <- function() {
-  system2("w3", args = c("account", "ls"))
+  system2("w3", args = c("account", "ls"), stdout = TRUE)
 }

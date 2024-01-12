@@ -18,5 +18,5 @@ w3_delegation_ls <- function(json = FALSE) {
   moreargs <- list("--json" = json)
   moreargs <- moreargs[!sapply(moreargs, is.null)]
   moreargs <- moreargs[!sapply(moreargs, is.logical)]
-  system2("w3", args = c("delegation", "ls", moreargs))
+  system2("w3", args = c("delegation", "ls", moreargs), stdout = TRUE)
 }

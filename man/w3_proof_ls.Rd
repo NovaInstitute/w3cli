@@ -4,7 +4,7 @@
 \alias{w3_proof_ls}
 \title{w3_proof_ls}
 \usage{
-w3_proof_ls(json = FALSE)
+w3_proof_ls(json = TRUE)
 }
 \arguments{
 \item{json}{Logical. Format as newline delimited JSON}

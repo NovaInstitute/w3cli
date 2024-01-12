@@ -32,5 +32,5 @@ w3_coupon_create <- function(did,
   moreargs <- list("--password" = password, "--can" = can,
                    "--expiration" = expiration, "--output" = output)
   moreargs <- moreargs[!sapply(moreargs, is.null)]
-  system2("w3", args = c("coupon", "create", did, moreargs))
+  system2("w3", args = c("coupon", "create", did, moreargs), stdout = TRUE)
 }

@@ -8,6 +8,17 @@
 #' @example w3_open("QmZK9Q5YJ8Q5Z1Z6Z")
 
 w3_open <- function(cid) {
+  # check that cid provided
+  if (missing(cid)) {
+    stop("cid must be provided")
+  }
+  # check that cid is a character
+  if (!is.character(cid)) {
+    stop("cid must be a character")
+  }
+  # remove https://w3s.link/ipfs/ from cid
+  cid <- gsub("https://w3s.link/ipfs/", "", cid)
+  # open cid
   system2("w3", args = c("open", cid))
 }
 

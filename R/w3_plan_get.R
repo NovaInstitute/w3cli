@@ -10,5 +10,18 @@
 #' w3_plan_get('user@mail.com')
 
 w3_plan_get <- function(email) {
-  system2("w3", args = c("plan", "get", email))
+  # check that email provided and is a character and a valid email
+  if (missing(email)) {
+    stop("email must be provided")
+  }
+  if (!is.character(email)) {
+    stop("email must be a character")
+  }
+  if (!grepl(".@.", email)) {
+    stop("email must be a valid email address")
+  }
+  res <- system2("w3", args = c("plan", "get", email), stdout = TRUE)
+  gsub("⁂ ", "", res)
 }
+
+# remember to add to DESCRIPTION with usethis::use_package("rhub")

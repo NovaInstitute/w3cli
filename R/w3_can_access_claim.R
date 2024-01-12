@@ -12,5 +12,5 @@
 #' @example w3_can_access_claim()
 
 w3_can_access_claim <- function() {
-  system2("w3", args = c("can", "access", "claim"))
+  system2("w3", args = c("can", "access", "claim"), stdout = TRUE)
 }

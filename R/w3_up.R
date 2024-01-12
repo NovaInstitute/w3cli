@@ -62,5 +62,8 @@ w3_up <- function(file,
   moreargs <- paste(names(moreargs), moreargs, sep = "=")
   moreargs <- paste(moreargs, collapse = " ")
 
-  system2("w3", args = c("up", file, moreargs))
+  res <- system2("w3", args = c("up", file, moreargs), stdout = TRUE,
+                 wait = TRUE, stderr = TRUE, timeout = 60)
+  gsub("⁂ ", "", res)
+
 }
