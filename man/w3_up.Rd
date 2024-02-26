@@ -6,7 +6,7 @@
 \usage{
 w3_up(
   file,
-  no_wrap = FALSE,
+  no_wrap = TRUE,
   hidden = FALSE,
   car = FALSE,
   json = FALSE,

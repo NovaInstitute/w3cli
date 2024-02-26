@@ -37,7 +37,7 @@
 #' w3_up('file.txt')
 
 w3_up <- function(file,
-                  no_wrap = FALSE,
+                  no_wrap = TRUE,
                   hidden = FALSE,
                   car = FALSE,
                   json = FALSE,
