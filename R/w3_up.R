@@ -66,6 +66,6 @@ w3_up <- function(file,
   res <- system2("w3", args = c("up", moreargs, file), stdout = TRUE,
                  wait = TRUE, stderr = TRUE, timeout = 60)
 
-  gsub("⁂ ", "", res[grep("https://w3s.link/ipfs/", res)])
+  gsub("⁂ ", "", res[[grep("https://w3s.link/ipfs/", res)]])
 
 }
