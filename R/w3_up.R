@@ -43,8 +43,7 @@ w3_up <- function(file,
                   json = NULL,
                   verbose = NULL,
                   shard_size = NULL,
-                  concurrent_requests = NULL,
-                  uselast = TRUE) {
+                  concurrent_requests = NULL) {
 
   # Check that file exist
   if (!file.exists(file)) {
@@ -66,7 +65,7 @@ w3_up <- function(file,
 
   res <- system2("w3", args = c("up", moreargs, file), stdout = TRUE,
                  wait = TRUE, stderr = TRUE, timeout = 60)
-  if (uselast) res <- res[[length(res)]]
-  gsub("⁂ ", "", res)
+
+  gsub("⁂ ", "", res[grep("https://w3s.link/ipfs/", res)])
 
 }
