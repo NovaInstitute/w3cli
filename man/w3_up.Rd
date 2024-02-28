@@ -7,12 +7,12 @@
 w3_up(
   file,
   no_wrap = TRUE,
-  hidden = FALSE,
-  car = FALSE,
-  json = FALSE,
-  verbose = FALSE,
-  shard_size = 0,
-  concurrent_requests = 0
+  hidden = NULL,
+  car = NULL,
+  json = NULL,
+  verbose = NULL,
+  shard_size = NULL,
+  concurrent_requests = NULL
 )
 }
 \arguments{
