@@ -38,12 +38,12 @@
 
 w3_up <- function(file,
                   no_wrap = TRUE,
-                  hidden = FALSE,
-                  car = FALSE,
-                  json = FALSE,
-                  verbose = FALSE,
-                  shard_size = 0,
-                  concurrent_requests = 0) {
+                  hidden = NULL,
+                  car = NULL,
+                  json = NULL,
+                  verbose = NULL,
+                  shard_size = NULL,
+                  concurrent_requests = NULL) {
 
   # Check that file exist
   if (!file.exists(file)) {
@@ -55,15 +55,16 @@ w3_up <- function(file,
                 "--concurrent-requests" = concurrent_requests)
   # remove arguments that are not used: i.e. FALSE, NULL or 0
   moreargs <- moreargs[!sapply(moreargs, is.null)]
-  moreargs <- moreargs[!sapply(moreargs, is.logical)]
-  moreargs <- moreargs[!sapply(moreargs, is.numeric)]
+  moreargs <- moreargs[!moreargs == FALSE]
+  moreargs <- moreargs[sapply(moreargs, function(x) is.logical(x)|is.numeric(x))]
 
   # Callapse moreargs into a character vector of length 1 in the form name=value
   moreargs <- paste(names(moreargs), moreargs, sep = "=")
+  moreargs <- gsub("=TRUE", "", moreargs)
   moreargs <- paste(moreargs, collapse = " ")
 
-  res <- system2("w3", args = c("up", file, moreargs), stdout = TRUE,
+  res <- system2("w3", args = c("up", moreargs, file), stdout = TRUE,
                  wait = TRUE, stderr = TRUE, timeout = 60)
-  gsub("⁂ ", "", res)
+  gsub("⁂ ", "", res[[length(res)]])
 
 }
