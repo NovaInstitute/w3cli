@@ -8,8 +8,8 @@
 #' @export
 #' @example w3_rm("QmZK9Q5YJ8Q5Z1Z6Z")
 
-w3_rm <- function(cid, shards = FALSE) {
+w3_rm <- function(cid, shards = NULL) {
   moreargs <- list("--shards" = shards)
-  moreargs <- moreargs[!sapply(moreargs, is.logical)]
+  moreargs <- moreargs[!sapply(moreargs, is.null)]
   system2("w3", args = c("rm", cid, moreargs))
 }
