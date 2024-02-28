@@ -4,7 +4,7 @@
 \alias{w3_rm}
 \title{w3_rm}
 \usage{
-w3_rm(cid, shards = FALSE)
+w3_rm(cid, shards = NULL)
 }
 \arguments{
 \item{cid}{Character. CID to remove}
