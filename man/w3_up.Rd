@@ -12,7 +12,8 @@ w3_up(
   json = NULL,
   verbose = NULL,
   shard_size = NULL,
-  concurrent_requests = NULL
+  concurrent_requests = NULL,
+  timeout = 60
 )
 }
 \arguments{
