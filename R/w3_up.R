@@ -67,6 +67,6 @@ w3_up <- function(file,
   res <- system2("w3", args = c("up", moreargs, file), stdout = TRUE,
                  wait = TRUE, stderr = TRUE, timeout = timeout)
 
-  grep("http", stringr::str_split(aa, " ", simplify = TRUE), value = TRUE)
+  grep("http", stringr::str_split(res, " ", simplify = TRUE), value = TRUE)
 
 }
